@@ -36,10 +36,6 @@ class LoginViewController: UIViewController {
             
         }
         
-        
-        
-        
-        
     }
     
     @IBAction func signUpButton(_ sender: Any) {
