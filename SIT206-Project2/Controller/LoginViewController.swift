@@ -39,6 +39,26 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signUpButton(_ sender: Any) {
+        if usernameTextField.text != "" && passwordTextField.text != "" {
+            
+            AuthProvider.Instance.signUp(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (message) in
+                if message != nil {
+                    self.alertUser(title: "Problem Creating A New User", message: message!);
+                } else {
+                    
+                    self.usernameTextField.text = "";
+                    self.passwordTextField.text = "";
+                    
+                    self.performSegue(withIdentifier: self.CONTACT_SEGUE, sender: nil);
+                }
+            }
+            
+            
+            
+        } else {
+            alertUser(title: "Email and Password are Required", message: "Please Enter your Email and Password in The Text Fields");
+            
+        }
     }
     
     private func alertUser(title: String, message: String) {
@@ -54,6 +74,13 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        if AuthProvider.Instance.isLoggedIn() {
+            performSegue(withIdentifier: self.CONTACT_SEGUE, sender: nil);
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

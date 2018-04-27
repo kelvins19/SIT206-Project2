@@ -34,7 +34,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AP-bc-aZ9">
                                 <rect key="frame" x="85" y="299" width="45" height="30"/>
@@ -103,11 +103,18 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="PLn-RS-4eO" id="tWW-Z9-ygg"/>
+                                    <outlet property="delegate" destination="PLn-RS-4eO" id="iZf-QJ-hDc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="C5c-Vw-div"/>
                     </view>
+                    <connections>
+                        <outlet property="myTable" destination="e3v-sZ-N1b" id="LEr-vK-HY8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvW-Dq-m7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

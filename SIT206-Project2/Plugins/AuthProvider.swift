@@ -48,10 +48,40 @@ class AuthProvider {
                 self.handleErrors(err: error! as NSError, loginHandler: loginHandler);
             }
             else {
-                loginHandler?(nil);
+                if user?.uid != nil {
+                    
+                    //store the user to database
+                    DBProvider.Instance.saveUser(withID: user!.uid, email: withEmail, password: password);
+                    //login the user
+                    self.login(withEmail: withEmail, password: password, loginHandler: loginHandler);
+                    
+                }
             }
         });
     } //signUp Function
+    
+    func isLoggedIn() -> Bool {
+        if Auth.auth().currentUser != nil {
+            return true;
+        }
+        return false;
+    }// When user has already logged in function
+    
+    func logOut() -> Bool {
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut();
+                return true;
+            } catch {
+                return false;
+            }
+        }
+        return true;
+    } //log out function
+    
+    func userID() -> String {
+        return Auth.auth().currentUser!.uid;
+    }
     
     private func handleErrors(err: NSError, loginHandler: LoginHandler?) {
         
