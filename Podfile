@@ -10,4 +10,5 @@ target 'SIT206-Project2' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'JSQMessagesViewController'
 end

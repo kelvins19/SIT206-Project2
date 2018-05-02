@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ContactViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ContactViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FetchData {
 
     @IBOutlet weak var myTable: UITableView!
+    
+    private let CELL_ID = "Cell";
+    private let CHAT_SEGIE = "ChatSegue";
     
     private var contacts = [Contact]();
     
@@ -18,6 +21,16 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        DBProvider.Instance.delegate = self;
+        DBProvider.Instance.getContacts();
+    }
+    
+    func dataReceived(contacts: [Contact]) {
+        self.contacts = contacts;
+        
+        // get the name of current user
+        
+        myTable.reloadData();
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,9 +42,13 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath);
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath);
+        cell.textLabel?.text = contacts[indexPath.row].name;
         return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: CHAT_SEGIE, sender: nil);
     }
     
     @IBAction func logOutButton(_ sender: Any) {
