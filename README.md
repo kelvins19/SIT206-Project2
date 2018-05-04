@@ -10,4 +10,4 @@ We can chat to all users in the world for those who are signed up to this apps w
 
 Technical Features you plan to use: Login Screen (Username & Password), 1 to 1 chat, Sending Media files
 
-New Technical Features you plan to learn & use: Chatting with all users, Sharing Location
+New Technical Features you plan to learn & use: Chatting with all users, Sharing Location, Implementing JSQMessagesViewController, FIREBASE
