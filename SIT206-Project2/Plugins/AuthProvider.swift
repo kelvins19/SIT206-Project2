@@ -27,6 +27,8 @@ class AuthProvider {
         return _instance;
     }
     
+    var userName = "";
+    
     func login(withEmail: String, password: String, loginHandler: LoginHandler?) {
         
         Auth.auth().signIn(withEmail: withEmail, password: password, completion: { (user,error) in
