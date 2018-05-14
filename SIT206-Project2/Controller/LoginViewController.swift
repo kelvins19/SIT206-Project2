@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
             AuthProvider.Instance.login(withEmail: usernameTextField.text!, password: passwordTextField.text!, loginHandler: {(message) in
                 
                 if message != nil {
-                    self.alertUser(title: "Problem With Authenticatiob", message: message!);
+                    self.alertUser(title: "Problem With Authentication", message: message!);
                 } else {
                     
                     self.usernameTextField.text = "";
@@ -29,14 +29,14 @@ class LoginViewController: UIViewController {
                     
                     self.performSegue(withIdentifier: self.CONTACT_SEGUE, sender: nil);
                 }
-            })
+            }) // Authenticating The User Based On Data From Database
             
         } else {
-            alertUser(title: "Email and Password are Required", message: "Please Enter your Email and Password in The Text Fields");
+            alertUser(title: "Email and Password are Required", message: "Please Enter your Email and Password in The Text Fields"); // Alert User If The Email or Password Empty
             
         }
         
-    }
+    } // Function When Login Button Pressed
     
     @IBAction func signUpButton(_ sender: Any) {
         if usernameTextField.text != "" && passwordTextField.text != "" {
@@ -53,20 +53,18 @@ class LoginViewController: UIViewController {
                 }
             }
             
-            
-            
         } else {
             alertUser(title: "Email and Password are Required", message: "Please Enter your Email and Password in The Text Fields");
             
         }
-    }
+    } // Sign Up Functions
     
     private func alertUser(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert);
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil);
         alert.addAction(ok);
         present(alert, animated: true, completion: nil);
-    }
+    } // Alert User Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +75,7 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if AuthProvider.Instance.isLoggedIn() {
             performSegue(withIdentifier: self.CONTACT_SEGUE, sender: nil);
-        }
+        } // Move to ContactViewController
     }
     
     

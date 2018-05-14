@@ -10,13 +10,13 @@
 		5F2A626ED9053742FE9C5CB1 /* Pods_SIT206_Project2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F9470FA8EEF97FB2063D22 /* Pods_SIT206_Project2.framework */; };
 		F44C6B65209C7D40006261C0 /* MessagesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44C6B64209C7D40006261C0 /* MessagesHandler.swift */; };
 		F45316F72095A310007973E0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45316F62095A310007973E0 /* ChatViewController.swift */; };
-		F474892C2097203D007CF207 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F474892B2097203D007CF207 /* GoogleService-Info.plist */; };
+		F46E6ED820A59EB60011B823 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F46E6ED720A59EB60011B823 /* GoogleService-Info.plist */; };
 		F4845B702092D0A900264C7F /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4845B6F2092D0A900264C7F /* DBProvider.swift */; };
 		F4845B722092D19300264C7F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4845B712092D19300264C7F /* Constants.swift */; };
 		F4845B762092E19C00264C7F /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4845B752092E19C00264C7F /* Contact.swift */; };
+		F4CF501620A6F0890086FA5C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4CF501520A6F0890086FA5C /* MapKit.framework */; };
 		F4FF5EC02082E60A00C6514F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF5EBF2082E60A00C6514F /* AppDelegate.swift */; };
 		F4FF5EC52082E60A00C6514F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FF5EC32082E60A00C6514F /* Main.storyboard */; };
-		F4FF5EC72082E60C00C6514F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4FF5EC62082E60C00C6514F /* Assets.xcassets */; };
 		F4FF5ECA2082E60C00C6514F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FF5EC82082E60C00C6514F /* LaunchScreen.storyboard */; };
 		F4FF5ED82082EA9B00C6514F /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF5ED72082EA9B00C6514F /* ContactViewController.swift */; };
 		F4FF5EDA2082EACA00C6514F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF5ED92082EACA00C6514F /* LoginViewController.swift */; };
@@ -29,14 +29,14 @@
 		E7F9470FA8EEF97FB2063D22 /* Pods_SIT206_Project2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SIT206_Project2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44C6B64209C7D40006261C0 /* MessagesHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesHandler.swift; sourceTree = "<group>"; };
 		F45316F62095A310007973E0 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		F474892B2097203D007CF207 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F46E6ED720A59EB60011B823 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F4845B6F2092D0A900264C7F /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		F4845B712092D19300264C7F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F4845B752092E19C00264C7F /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		F4CF501520A6F0890086FA5C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F4FF5EBC2082E60A00C6514F /* SIT206-Project2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SIT206-Project2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4FF5EBF2082E60A00C6514F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4FF5EC42082E60A00C6514F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F4FF5EC62082E60C00C6514F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4FF5EC92082E60C00C6514F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4FF5ECB2082E60C00C6514F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4FF5ED72082EA9B00C6514F /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4CF501620A6F0890086FA5C /* MapKit.framework in Frameworks */,
 				5F2A626ED9053742FE9C5CB1 /* Pods_SIT206_Project2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +69,7 @@
 		516DF07D0BF0DC456D0EB5ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4CF501520A6F0890086FA5C /* MapKit.framework */,
 				E7F9470FA8EEF97FB2063D22 /* Pods_SIT206_Project2.framework */,
 			);
 			name = Frameworks;
@@ -100,9 +102,8 @@
 				F4FF5ED12082E81100C6514F /* Model */,
 				F4FF5EBF2082E60A00C6514F /* AppDelegate.swift */,
 				F4FF5EC32082E60A00C6514F /* Main.storyboard */,
-				F4FF5EC62082E60C00C6514F /* Assets.xcassets */,
+				F46E6ED720A59EB60011B823 /* GoogleService-Info.plist */,
 				F4FF5EC82082E60C00C6514F /* LaunchScreen.storyboard */,
-				F474892B2097203D007CF207 /* GoogleService-Info.plist */,
 				F4FF5ECB2082E60C00C6514F /* Info.plist */,
 			);
 			path = "SIT206-Project2";
@@ -178,6 +179,11 @@
 				TargetAttributes = {
 					F4FF5EBB2082E60A00C6514F = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -205,8 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4FF5ECA2082E60C00C6514F /* LaunchScreen.storyboard in Resources */,
-				F474892C2097203D007CF207 /* GoogleService-Info.plist in Resources */,
-				F4FF5EC72082E60C00C6514F /* Assets.xcassets in Resources */,
+				F46E6ED820A59EB60011B823 /* GoogleService-Info.plist in Resources */,
 				F4FF5EC52082E60A00C6514F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +230,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -234,6 +240,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -420,6 +427,7 @@
 			baseConfigurationReference = C31D7E5CDCF3D0B6D408BE18 /* Pods-SIT206-Project2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24SM6522LU;
 				INFOPLIST_FILE = "SIT206-Project2/Info.plist";
@@ -439,6 +447,7 @@
 			baseConfigurationReference = CAD718752387A8E4C246AF6C /* Pods-SIT206-Project2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24SM6522LU;
 				INFOPLIST_FILE = "SIT206-Project2/Info.plist";

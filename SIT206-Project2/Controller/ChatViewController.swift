@@ -9,7 +9,8 @@
 import UIKit
 import JSQMessagesViewController
 import MobileCoreServices
-import AVKit
+import AVKit // To Play Video
+import SDWebImage // For Downloading Media Message From Database
 
 class ChatViewController: JSQMessagesViewController, MessageReceivedDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -28,6 +29,7 @@ class ChatViewController: JSQMessagesViewController, MessageReceivedDelegate, UI
         self.senderDisplayName = AuthProvider.Instance.userName; // To know which user send the messages
         
         MessagesHandler.Instance.observeMessages();
+        MessagesHandler.Instance.observeMediaMessages();
     }
     
     // Collection View Functions
@@ -35,15 +37,19 @@ class ChatViewController: JSQMessagesViewController, MessageReceivedDelegate, UI
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         
         let bubbleFactory = JSQMessagesBubbleImageFactory();
-        //let message = messages[indexPath.item];
+        let message = messages[indexPath.item];
         
-        return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.blue);
-        
-    }
+        if message.senderId == self.senderId {
+            return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.blue); // Outgoing Message Bubble
+        } else {
+            return bubbleFactory?.incomingMessagesBubbleImage(with: UIColor.green);
+        } // Incoming Message Bubble
+
+    } // Chat Bubble
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "profileimage"), diameter: 30)
-    }
+    } // Profile Image
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
@@ -61,7 +67,6 @@ class ChatViewController: JSQMessagesViewController, MessageReceivedDelegate, UI
                 self.present(playerController, animated: true, completion: nil);
             }
         }
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -119,14 +124,14 @@ class ChatViewController: JSQMessagesViewController, MessageReceivedDelegate, UI
         
         if let pic = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-            let img = JSQPhotoMediaItem(image: pic);
-            self.messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: img));
+            let data = UIImageJPEGRepresentation(pic, 0.01);
+            
+            MessagesHandler.Instance.sendMedia(image: data, video: nil, senderID: senderId, senderName: senderDisplayName);
             
             
-        } else if let vidUrl = info[UIImagePickerControllerMediaURL] as? URL {
+        } else if let vidURL = info[UIImagePickerControllerMediaURL] as? URL {
             
-            let video = JSQVideoMediaItem(fileURL: vidUrl, isReadyToPlay: true);
-            messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: video));
+            MessagesHandler.Instance.sendMedia(image: nil, video: vidURL, senderID: senderId, senderName: senderDisplayName);
             
         }
         
@@ -144,10 +149,83 @@ class ChatViewController: JSQMessagesViewController, MessageReceivedDelegate, UI
         collectionView.reloadData();
     }
     
+    func mediaReceiver(senderID: String, senderName: String, url: String) {
+        
+        if let mediaURL = URL(string: url) {
+            
+            do {
+                let data = try Data(contentsOf: mediaURL);
+                if let _ = UIImage(data: data) {
+                    let _ = SDWebImageDownloader.shared().downloadImage(with: mediaURL, options: [], progress: nil) { (image, data, error, finished) in
+                        
+                        DispatchQueue.main.async {
+                            let photo = JSQPhotoMediaItem(image: image);
+                            if senderID == self.senderId {
+                                photo?.appliesMediaViewMaskAsOutgoing = true;
+                            } else {
+                                photo?.appliesMediaViewMaskAsOutgoing = false;
+                            }
+                            self.messages.append(JSQMessage(senderId: senderID, displayName: senderName, media: photo));
+                            self.collectionView.reloadData();
+                        }
+                    }
+                } else {
+                    
+                    let video = JSQVideoMediaItem(fileURL: mediaURL, isReadyToPlay: true);
+                    if senderID == self.senderId {
+                        video?.appliesMediaViewMaskAsOutgoing = true;
+                    } else {
+                        video?.appliesMediaViewMaskAsOutgoing = false;
+                    }
+                    messages.append(JSQMessage(senderId: senderID, displayName: senderName, media: video));
+                    self.collectionView.reloadData();
+                }
+            } catch {
+                // here we are going to catch all potential errors that we get
+            }
+        }
+    }
     // End Delegation Functions
     
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil);
+    } // Back Button
+    
+    
+    
+    
+    
+    /* // Sharing Location Function -- Coming Soon
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.latestLocation = locations[locations.count-1]
+        
     }
+    
+    let sendLocation = UIAlertAction(title: "Send Location", style: .default, handler: { (action) -> Void in
+        
+        
+        
+        let loc: JSQLocationMediaItem = JSQLocationMediaItem(location: self.latestLocation)
+        
+        loc.appliesMediaViewMaskAsOutgoing = true
+        
+        let locmessage: JSQMessage = JSQMessage(senderId: self.senderId, senderDisplayName: self.senderDisplayName, date: NSDate() as Date!, media: loc)
+        
+        self.messages.append(locmessage)
+        
+        self.finishSendingMessage(animated: true)
+        self.collectionView.reloadData()
+        
+        print("Location button tapped")
+    })
+    
+    let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        print("Cancel button tapped")
+    })
+    
+    alertController.addAction(sendLocation)
+    
+    self.navigationController!.present(alertController, animated: true, completion: nil)
+    */
     
 }// class

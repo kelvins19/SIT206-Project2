@@ -6,9 +6,10 @@ target 'SIT206-Project2' do
   use_frameworks!
 
   # Pods for SIT206-Project2
-  pod 'Firebase/Core'
-  pod 'Firebase/Storage'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Database'
-  pod 'JSQMessagesViewController'
+  pod 'Firebase/Core' #Firebase Pod
+  pod 'Firebase/Storage' #Firebase Storage -- Storing Data (Image, Video)
+  pod 'Firebase/Auth' #Firebase Auth -- Authentication
+  pod 'Firebase/Database' #Firebase Database -- Storing Data (Contact, Messages)
+  pod 'JSQMessagesViewController' #JSQMessagesViewController
+  pod 'SDWebImage' #Retrieving Media Data
 end

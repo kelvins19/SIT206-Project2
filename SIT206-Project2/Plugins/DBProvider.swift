@@ -12,7 +12,7 @@ import FirebaseStorage
 
 protocol FetchData: class {
     func dataReceived(contacts: [Contact]);
-}
+} // Fetching Data from Database Protocol
 
 class DBProvider {
     
@@ -28,37 +28,37 @@ class DBProvider {
     
     var dbRef: DatabaseReference {
         return Database.database().reference();
-    }
+    } // Database Reference
     
     var contactsRef : DatabaseReference {
         return dbRef.child(Constants.CONTACTS);
-    }
+    } // Contacts Reference
     
     var messagesRef: DatabaseReference {
         return dbRef.child(Constants.MESSAGES);
-    }
+    } // Messages Reference
     
     var mediaMessagesRef: DatabaseReference {
         return dbRef.child(Constants.MEDIA_MESSAGES);
-    }
+    } // Media Messages Reference
     
     var storageRef: StorageReference {
         return Storage.storage().reference(forURL: "gs://sit206-project2.appspot.com/")
-    }
+    } // Storage Reference
     
     var imageStorageRef: StorageReference {
         return storageRef.child(Constants.IMAGE_STORAGE);
-    }
+    } // Image Storage Reference
     
     var videoStorageRef: StorageReference {
         return storageRef.child(Constants.VIDEO_STORAGE);
-    }
+    } // Video Storage Reference
     
     func saveUser(withID: String, email: String, password: String) {
         let data: Dictionary<String, Any> = [Constants.EMAIL: email, Constants.PASSWORD: password];
         
         contactsRef.child(withID).setValue(data);
-    }
+    } // Save User Function
     
     func getContacts() {
         
@@ -83,8 +83,8 @@ class DBProvider {
             }
             self.delegate?.dataReceived(contacts: contacts);
         }
-        
-    }
+    
+    } // Retrieving Contact Functions
     
     
 } // class

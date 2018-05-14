@@ -22,7 +22,7 @@ class ContactViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         // Do any additional setup after loading the view.
         DBProvider.Instance.delegate = self;
-        DBProvider.Instance.getContacts();
+        DBProvider.Instance.getContacts(); // Calling for getContacts Functions
     }
     
     func dataReceived(contacts: [Contact]) {

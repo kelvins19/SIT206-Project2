@@ -18,7 +18,7 @@ struct LoginErrorCode {
     static let USER_NOT_FOUND = "User not Found, Please Register by Clicking Sign Up";
     static let EMAIL_ALREADY_IN_USE = "Email Already In Use by Another Use, Please Use Another Email";
     static let WEAK_PASSWORD = "Password Should Be At Least 6 Characters Long";
-}
+} //Error Message
 
 class AuthProvider {
     private static let _instance = AuthProvider();
@@ -116,8 +116,5 @@ class AuthProvider {
                 break;
             }
         }
-    }
-    
-    
-    
-}
+    } // Error Handler Function
+} // Class
