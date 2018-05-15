@@ -1,0 +1,7 @@
+In case you can’t run our project in your MacBook, it means you haven’t install cocoapods in your PC. Follow this step to install cocoapods:
+1. Open Terminal
+2. Type $ sudo gem install cocoapods
+3. It will prompt for your password, type your password and click ENTER to continue
+4. The gem will be installed
+
+More info https://cocoapods.org
